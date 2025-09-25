@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const aboutText = "I am a passionate software engineer with a love for creating beautiful and functional web applications. I have experience with a variety of technologies and I am always eager to learn new things.";
+const aboutText = "A software developer interested in developing real-world useful applications and projects. As an active open-source contributor, I enjoy optimizing performance, enhancing user experience, and solving meaningful problems through clean, efficient code.";
 
 const sentence = {
   hidden: { opacity: 1 },
@@ -22,7 +22,7 @@ const letter = {
 
 const About = () => {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 bg-white/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -30,16 +30,16 @@ const About = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
+          <h2 className="text-4xl font-bold text-blue-950 text-left mb-8">About Me</h2>
           <motion.p
-            className="max-w-3xl mx-auto text-center text-lg leading-relaxed text-gray-300"
+            className="max-w-3xl text-left text-xl leading-relaxed text-pink-800"
             variants={sentence}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.4 }}
           >
             {aboutText.split(" ").map((word, index) => (
-              <motion.span key={word + "-" + index} variants={letter} className="inline-block mr-[0.25em]">
+              <motion.span key={word + "-" + index} variants={letter} className="inline-block mr-[0.3em]">
                 {word}
               </motion.span>
             ))}
