@@ -9,8 +9,8 @@ const navLinks = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -52,7 +52,7 @@ const Navbar = () => {
           onFocus={() => scrambleRef.current?.scramble()}
           onBlur={() => scrambleRef.current?.reset()}
         >
-          <ScrambleText ref={scrambleRef} text="Tanishka Nibariya" className="text-pink-800 text-4xl hover:text-highlight transition-colors [font-family:'Yellowtail',cursive]" />
+          <ScrambleText ref={scrambleRef} text="Tanishka Nibariya" className="text-pink-800 font-light text-4xl hover:text-highlight transition-colors [font-family:'Yellowtail',cursive]" />
         </Link>
         <div className="hidden md:flex items-center space-x-2">
           {navLinks.map((link) => (

@@ -19,7 +19,7 @@ const itemVariants = {
 
 const Hero = () => {
   return (
-    <section id="hero" className="h-screen flex items-center justify-center text-center">
+    <section id="hero" className="h-screen flex items-center bg-[#FDECF0]/50 justify-center text-center">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -27,7 +27,7 @@ const Hero = () => {
       >
         <motion.h2
           variants={itemVariants}
-          className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-pink-700 bg-gradient-to-r from-highlight to-pink-400"
+          className="text-5xl md:text-7xl font-450 mb-4 bg-clip-text [font-family:'Lora'] text-[#F78A7E] bg-gradient-to-r from-highlight to-pink-400"
           animate={{
             y: [0, -8, 0],
             transition: {
@@ -37,7 +37,7 @@ const Hero = () => {
             },
           }}
         >Tanishka Nibariya</motion.h2>
-        <motion.p variants={itemVariants} className="text-2xl md:text-3xl text-gray-400">Software Engineer & Web Developer</motion.p>
+        <motion.p variants={itemVariants} className="text-2xl md:text-3xl  text-pink-800">Open-Source Developer & Aspiring Software Engineer</motion.p>
       </motion.div>
     </section>
   );
