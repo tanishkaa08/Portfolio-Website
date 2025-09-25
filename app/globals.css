@@ -20,16 +20,6 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #c9184a;
-    --foreground: #ededed;
-    --dot-bg: #e7abc2;
-    --secondary: #c9184a;
-    --dot-color: #ededed;
-  }
-}
-
 body {
   color: var(--foreground);
   font-family: var(--font-sans-custom);
