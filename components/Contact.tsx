@@ -2,38 +2,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from "@formspree/react";
-import { FaUser, FaEnvelope, FaCheckCircle, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaCheckCircle, FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm("your_form_id");
+ 
+  const [state, handleSubmit] = useForm("xzzjzakp");
 
   return (
     <section id="contact" className="py-20">
-      <div className="container mx-auto px-6">
+      <div className="container bg-white/50 mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-12">Contact Me</h2>
+          <h2 className="text-4xl text-blue-950 font-bold text-center mb-12">Contact Me</h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <h3 className="text-3xl font-bold text-blue-950 mb-4">Get in Touch</h3>
+              <p className="text-pink-800 text-xl mb-8 leading-relaxed">
                 I'm currently open to new opportunities and collaborations. Feel free to send me a message about anything you want to discuss.
               </p>
               <div className="flex justify-center md:justify-start space-x-6">
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-highlight transition-colors"><FaGithub size={28} /></a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-highlight transition-colors"><FaTwitter size={28} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-black hover:text-highlight transition-colors"><FaGithub size={28} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-highlight transition-colors"><FaDiscord size={28} /></a>
               </div>
             </div>
 
             <div className="bg-secondary/50 backdrop-blur-sm border-2 border-accent/30 p-8 rounded-2xl shadow-lg">
               {state.succeeded ? (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8">
-                  <FaCheckCircle className="text-green-500 mx-auto text-5xl mb-4" />
+                  <FaCheckCircle className="text-green-800 mx-auto text-5xl mb-4" />
                   <p className="text-xl font-semibold">Thanks for your message!</p>
                   <p className="text-gray-400">I'll get back to you soon.</p>
                 </motion.div>

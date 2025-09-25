@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const aboutText = "A software developer interested in developing real-world useful applications and projects. As an active open-source contributor, I enjoy optimizing performance, enhancing user experience, and solving meaningful problems through clean, efficient code.";
+const aboutText = "I am a 3rd year student at IIITDM Jabalpur, interested in developing real-world useful applications and projects. As an active open-source contributor, I enjoy optimizing performance, enhancing user experience, and solving meaningful problems through clean, efficient code.";
 
 const sentence = {
   hidden: { opacity: 1 },

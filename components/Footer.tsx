@@ -12,7 +12,7 @@ const Footer = () => {
           <motion.a whileHover={{ y: -3, scale: 1.1 }} href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-highlight transition-colors duration-300"><FaLinkedin size={30} /></motion.a>
           <motion.a whileHover={{ y: -3, scale: 1.1 }} href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-highlight transition-colors duration-300"><FaTwitter size={30} /></motion.a>
         </div>
-        <p>&copy; {new Date().getFullYear()} John Doe. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Tanishka Nibariya. All rights reserved.</p>
       </div>
     </footer>
   );

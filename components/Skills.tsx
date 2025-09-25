@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt } from 'react-icons/fa';
+import { motion, Variants } from 'framer-motion';
+import { FaHtml5, FaCss3Alt, FaNodeJs } from 'react-icons/fa';
 import { VscVscode, VscJson } from 'react-icons/vsc';
 import {
   SiNextdotjs,
@@ -11,13 +11,18 @@ import {
   SiGit,
   SiPython,
   SiCplusplus,
-  SiKotlin,
+
   SiFigma,
   SiUbuntu,
   SiGithub,
   SiAndroidstudio,
   SiAdobepremierepro,
-  SiFlutter,
+  
+  SiMongodb,
+  SiVite,
+  SiFirebase,
+  SiAppwrite,
+  SiTypescript,
 } from 'react-icons/si';
 
 // --- Data Refactored for easier mapping ---
@@ -25,34 +30,40 @@ const skillCategories = [
   {
     title: 'Languages',
     skills: [
-      { name: 'Python', icon: <SiPython size={40} className="text-[#3776AB]" /> },
+      
       { name: 'C++', icon: <SiCplusplus size={40} className="text-[#00599C]" /> },
       { name: 'HTML5', icon: <FaHtml5 size={40} className="text-[#E34F26]" /> },
       { name: 'CSS3', icon: <FaCss3Alt size={40} className="text-[#1572B6]" /> },
-      { name: 'JavaScript', icon: <SiJavascript size={40} className="text-[#F7DF1E]" /> },
-      { name: 'Kotlin', icon: <SiKotlin size={40} className="text-[#7F52FF]" /> },
+      { name: 'JavaScript', icon: <SiJavascript size={40} className="text-[#F7DF1E] bg-black" /> },
       { name: 'ExtendScript', icon: <VscJson size={40} className="text-[#F7DF1E]" /> },
+      { name: 'Python', icon: <SiPython size={40} className="text-[#3776AB]" /> },
+      { name: 'TypeScript', icon: <SiTypescript size={40} className="text-blue-700" /> },
     ],
   },
   {
     title: 'Developer Tools',
     skills: [
       { name: 'VS Code', icon: <VscVscode size={40} className="text-[#007ACC]" /> },
+      { name: 'Git', icon: <SiGit size={40} className="text-[#F05032]" /> },
+      { name: 'GitHub', icon: <SiGithub size={40} className="text-black" /> },
+      { name: 'Vite', icon: <SiVite size={40} className="text-purple-500" /> },
       { name: 'Figma', icon: <SiFigma size={40} className="text-[#F24E1E]" /> },
       { name: 'Ubuntu', icon: <SiUbuntu size={40} className="text-[#E95420]" /> },
-      { name: 'GitHub', icon: <SiGithub size={40} className="text-black" /> },
       { name: 'Android Studio', icon: <SiAndroidstudio size={40} className="text-[#3DDC84]" /> },
       { name: 'Premiere Pro', icon: <SiAdobepremierepro size={40} className="text-[#040433]" /> },
-      { name: 'Flutter', icon: <SiFlutter size={40} className="text-[#02569B]" /> },
+      { name: 'Firebase', icon: <SiFirebase size={40} className="text-yellow-400" /> },
+      { name: 'Appwrite', icon: <SiAppwrite size={40} className="text-pink-500" /> },
+      { name: 'TinyMCE', icon: <span className="text-sm font-bold bg-gray-200 py-1 px-2 rounded">TinyMCE</span> },
     ],
   },
   {
-    title: 'Frameworks',
+    title: 'Frameworks & Databases',
     skills: [
       { name: 'React', icon: <SiReact size={40} className="text-[#61DAFB]" /> },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss size={40} className="text-[#06B6D4]" /> },
-      { name: 'Git', icon: <SiGit size={40} className="text-[#F05032]" /> },
       { name: 'Next.js', icon: <SiNextdotjs size={40} className="text-black" /> },
+      { name: 'Node.js', icon: <FaNodeJs size={40} className="text-green-500" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss size={40} className="text-[#06B6D4]" /> },
+      { name: 'MongoDB', icon: <SiMongodb size={40} className="text-green-600" /> },
     ],
   },
 ];
@@ -84,12 +95,12 @@ const Tape = ({ rotation }) => (
   );
 
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  hidden: { opacity: 1 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
@@ -104,7 +115,7 @@ const Skills = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={containerVariants}
         >
           <h2 className="text-4xl font-bold text-center mb-20 text-blue-950">My Tech Stack</h2>
@@ -123,9 +134,9 @@ const Skills = () => {
           
                 <div className="bg-white p-5 pb-10 border-15 border-gray-200 rounded-sm shadow-lg ">
                   <h3 className="text-xl font-semibold text-center mb-6 text-pink-800">{category.title}</h3>
-                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-y-8 gap-x-4">
                     {category.skills.map((skill) => (
-                      <div key={skill.name} className="flex flex-col items-center text-center">
+                      <div key={skill.name} title={skill.name} className="flex flex-col items-center text-center">
                         {skill.icon}
                         <p className="mt-1 text-xs font-medium text-gray-500">{skill.name}</p>
                       </div>
