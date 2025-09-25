@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaFileDownload } from 'react-icons/fa';
 
 const aboutText = "I am a 3rd year student at IIITDM Jabalpur, interested in developing real-world useful applications and projects. As an active open-source contributor, I enjoy optimizing performance, enhancing user experience, and solving meaningful problems through clean, efficient code.";
 
@@ -30,7 +31,7 @@ const About = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold text-blue-950 text-left mb-8">About Me</h2>
+          <h2 className="text-4xl font-bold text-blue-950 text-left ">About Me</h2>
           <motion.p
             className="max-w-3xl text-left text-xl leading-relaxed text-pink-800"
             variants={sentence}
@@ -44,6 +45,17 @@ const About = () => {
               </motion.span>
             ))}
           </motion.p>
+          <motion.div
+            className="mt-8 text-left"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.4 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+            <motion.a href="#https://drive.google.com/file/d/1OS41h6TudKc5jbMvavGdm20lj-9dm7Ph/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-flex items-center bg-highlight text-pink-800 border font-bold py-3 px-6 rounded-lg shadow-lg shadow-highlight/30 hover:bg-opacity-90 transition-all duration-300">
+              <FaFileDownload className="mr-2" /> Resume
+            </motion.a>
+          </motion.div>
         </motion.div>
       </div>
     </section>

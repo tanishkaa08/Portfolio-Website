@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -38,6 +39,11 @@ const Hero = () => {
           }}
         >Tanishka Nibariya</motion.h2>
         <motion.p variants={itemVariants} className="text-2xl md:text-3xl  text-orange-800">Open-Source Developer & Aspiring Software Engineer</motion.p>
+        <motion.div variants={itemVariants} className="flex justify-center space-x-6 mt-8">
+          <motion.a whileHover={{ y: -3, scale: 1.1 }} href="https://github.com/tanishkaa08" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-highlight transition-colors duration-300"><FaGithub size={30} /></motion.a>
+          <motion.a whileHover={{ y: -3, scale: 1.1 }} href="https://www.linkedin.com/in/tanishka-nibariya-4390a428b/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-highlight transition-colors duration-300"><FaLinkedin size={30} /></motion.a>
+          <motion.a whileHover={{ y: -3, scale: 1.1 }} href="https://discord.com" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-highlight transition-colors duration-300"><FaDiscord size={30} /></motion.a>
+        </motion.div>
       </motion.div>
     </section>
   );

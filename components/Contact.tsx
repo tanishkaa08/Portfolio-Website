@@ -25,9 +25,9 @@ const Contact = () => {
                 I'm currently open to new opportunities and collaborations. Feel free to send me a message about anything you want to discuss.
               </p>
               <div className="flex justify-center md:justify-start space-x-6">
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-black hover:text-highlight transition-colors"><FaGithub size={28} /></a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-highlight transition-colors"><FaDiscord size={28} /></a>
+                <a href="#https://github.com/tanishkaa08" target="_blank" rel="noopener noreferrer" className="text-black hover:text-highlight transition-colors"><FaGithub size={28} /></a>
+                <a href="#https://www.linkedin.com/in/tanishka-nibariya-4390a428b/" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
+                <a href="#https://discord.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-highlight transition-colors"><FaDiscord size={28} /></a>
               </div>
             </div>
 
