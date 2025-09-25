@@ -59,7 +59,7 @@ const Navbar = () => {
           onBlur={() => scrambleRef.current?.reset()}
         >
           <ScrambleText ref={scrambleRef} text="Tanishka Nibariya" className="md:hidden text-pink-800 font-light text-2xl hover:text-highlight transition-colors [font-family:'Lora']" />
-          <ScrambleText ref={scrambleRef} text="Tanishka Nibariya - Junior Year" className="hidden md:inline text-pink-800 font-light text-3xl hover:text-highlight transition-colors [font-family:'Lora']" />
+          <ScrambleText ref={scrambleRef} text="Tanishka Nibariya" className="hidden md:inline text-pink-800 font-light text-3xl hover:text-highlight transition-colors [font-family:'Lora']" />
         </Link>
         <div className="hidden md:flex items-center space-x-2">
           {navLinks.map((link) => (
