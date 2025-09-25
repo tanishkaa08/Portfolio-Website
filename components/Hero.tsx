@@ -27,7 +27,7 @@ const Hero = () => {
       >
         <motion.h2
           variants={itemVariants}
-          className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-highlight to-cyan-400"
+          className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-pink-700 bg-gradient-to-r from-highlight to-pink-400"
           animate={{
             y: [0, -8, 0],
             transition: {
@@ -36,7 +36,7 @@ const Hero = () => {
               ease: 'easeInOut',
             },
           }}
-        >John Doe</motion.h2>
+        >Tanishka Nibariya</motion.h2>
         <motion.p variants={itemVariants} className="text-2xl md:text-3xl text-gray-400">Software Engineer & Web Developer</motion.p>
       </motion.div>
     </section>

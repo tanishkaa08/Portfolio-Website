@@ -27,7 +27,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
@@ -36,7 +36,7 @@ const About = () => {
             variants={sentence}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             {aboutText.split(" ").map((word, index) => (
               <motion.span key={word + "-" + index} variants={letter} className="inline-block mr-[0.25em]">

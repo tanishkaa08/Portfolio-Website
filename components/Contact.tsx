@@ -1,53 +1,99 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useForm, ValidationError } from "@formspree/react";
+import { FaUser, FaEnvelope, FaCheckCircle, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Contact = () => {
+  const [state, handleSubmit] = useForm("your_form_id");
+
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-center mb-12">Contact Me</h2>
-          <form className="max-w-xl mx-auto">
-            <div className="mb-4">
-              <label htmlFor="name" className="block mb-2 font-semibold">Name</label>
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="text"
-                id="name"
-                className="w-full p-3 rounded bg-accent border-2 border-transparent focus:border-highlight focus:outline-none transition-colors"
-              />
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
+              <p className="text-gray-400 mb-8 leading-relaxed">
+                I'm currently open to new opportunities and collaborations. Feel free to send me a message about anything you want to discuss.
+              </p>
+              <div className="flex justify-center md:justify-start space-x-6">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-highlight transition-colors"><FaGithub size={28} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-highlight transition-colors"><FaTwitter size={28} /></a>
+              </div>
             </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block mb-2 font-semibold">Email</label>
-              <motion.input
-                whileFocus={{ scale: 1.02 }}
-                type="email"
-                id="email"
-                className="w-full p-3 rounded bg-accent border-2 border-transparent focus:border-highlight focus:outline-none transition-colors"
-              />
+
+            <div className="bg-secondary/50 backdrop-blur-sm border-2 border-accent/30 p-8 rounded-2xl shadow-lg">
+              {state.succeeded ? (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8">
+                  <FaCheckCircle className="text-green-500 mx-auto text-5xl mb-4" />
+                  <p className="text-xl font-semibold">Thanks for your message!</p>
+                  <p className="text-gray-400">I'll get back to you soon.</p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="relative">
+                      <label htmlFor="name" className="block mb-2 font-semibold">Name</label>
+                     
+                      <motion.input
+                        whileFocus={{ scale: 1.02 }}
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="w-full p-3 pr-10 rounded bg-background border-1 border-accent/50 focus:border-highlight focus:ring-2 focus:ring-highlight/50 focus:outline-none transition-all duration-300"
+                        required
+                      />
+                      <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-400 text-sm mt-1" />
+                    </div>
+                    <div className="relative">
+                      <label htmlFor="email" className="block mb-2 font-semibold">Email</label>
+                     
+                      <motion.input
+                        whileFocus={{ scale: 1.02 }}
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="w-full p-3 pr-10 rounded bg-background border-1 border-accent/50 focus:border-highlight focus:ring-2 focus:ring-highlight/50 focus:outline-none transition-all duration-300"
+                        required
+                      />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-sm mt-1" />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block mb-2 font-semibold">Message</label>
+                    <motion.textarea
+                      whileFocus={{ scale: 1.02 }}
+                      id="message"
+                      name="message"
+                      rows={5}
+                      className="w-full p-3 rounded bg-background border-1 border-accent/50 focus:border-highlight focus:ring-2 focus:ring-highlight/50 focus:outline-none transition-all duration-300"
+                      required
+                    ></motion.textarea>
+                    <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-sm mt-1" />
+                  </div>
+                  <div className="text-center">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      type="submit"
+                      disabled={state.submitting}
+                      className="bg-highlight text-pink-800 border font-bold py-3 px-8 rounded-lg shadow-lg shadow-highlight/30 hover:bg-opacity-90 transition-all duration-300 disabled:bg-gray-500 disabled:shadow-none disabled:cursor-not-allowed"
+                    >
+                      {state.submitting ? 'Sending...' : 'Get in Touch'}
+                    </motion.button>
+                  </div>
+                </form>
+              )}
             </div>
-            <div className="mb-4">
-              <label htmlFor="message" className="block mb-2 font-semibold">Message</label>
-              <motion.textarea
-                whileFocus={{ scale: 1.02 }}
-                id="message"
-                rows={4}
-                className="w-full p-3 rounded bg-accent border-2 border-transparent focus:border-highlight focus:outline-none transition-colors"
-              ></motion.textarea>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              type="submit"
-              className="bg-highlight text-background font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors duration-300"
-            >Send Message</motion.button>
-          </form>
+          </div>
         </motion.div>
       </div>
     </section>
