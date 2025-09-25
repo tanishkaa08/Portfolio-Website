@@ -1,12 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from "@formspree/react";
-import { FaUser, FaEnvelope, FaCheckCircle, FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
+import { FaCheckCircle, FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
 
 const Contact = () => {
- 
+  const [hasMounted, setHasMounted] = useState(false);
   const [state, handleSubmit] = useForm("xzzjzakp");
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   return (
     <section id="contact" className="py-20">
@@ -22,25 +26,25 @@ const Contact = () => {
             <div className="text-center md:text-left">
               <h3 className="text-3xl font-bold text-blue-950 mb-4">Get in Touch</h3>
               <p className="text-pink-800 text-xl mb-8 leading-relaxed">
-                I'm currently open to new opportunities and collaborations. Feel free to send me a message about anything you want to discuss.
+                I&apos;m currently open to new opportunities and collaborations. Feel free to send me a message about anything you want to discuss.
               </p>
               <div className="flex justify-center md:justify-start space-x-6">
-                <a href="#https://github.com/tanishkaa08" target="_blank" rel="noopener noreferrer" className="text-black hover:text-highlight transition-colors"><FaGithub size={28} /></a>
-                <a href="#https://www.linkedin.com/in/tanishka-nibariya-4390a428b/" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
-                <a href="#https://discord.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-highlight transition-colors"><FaDiscord size={28} /></a>
+                <a href="https://github.com/tanishkaa08" target="_blank" rel="noopener noreferrer" className="text-black hover:text-highlight transition-colors"><FaGithub size={28} /></a>
+                <a href="https://www.linkedin.com/in/tanishka-nibariya-4390a428b/" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-highlight transition-colors"><FaDiscord size={28} /></a>
               </div>
             </div>
 
-            <div className="bg-secondary/50 backdrop-blur-sm border-2 border-accent/30 p-8 rounded-2xl shadow-lg">
-              {state.succeeded ? (
+            <div className="bg-secondary/50 backdrop-blur-sm border-2 border-accent/30 p-8 rounded-2xl shadow-lg" suppressHydrationWarning>
+              {hasMounted && state.succeeded ? (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8">
                   <FaCheckCircle className="text-green-800 mx-auto text-5xl mb-4" />
                   <p className="text-xl font-semibold">Thanks for your message!</p>
-                  <p className="text-gray-400">I'll get back to you soon.</p>
+                  <p className="text-gray-400">I&apos;ll get back to you soon.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" suppressHydrationWarning>
                     <div className="relative">
                       <label htmlFor="name" className="block mb-2 font-semibold">Name</label>
                      
@@ -88,7 +92,7 @@ const Contact = () => {
                       disabled={state.submitting}
                       className="bg-highlight text-pink-800 border font-bold py-3 px-8 rounded-lg shadow-lg shadow-highlight/30 hover:bg-opacity-90 transition-all duration-300 disabled:bg-gray-500 disabled:shadow-none disabled:cursor-not-allowed"
                     >
-                      {state.submitting ? 'Sending...' : 'Get in Touch'}
+                      {hasMounted && (state.submitting ? 'Sending...' : 'Get in Touch')}
                     </motion.button>
                   </div>
                 </form>

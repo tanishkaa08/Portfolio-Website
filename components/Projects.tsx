@@ -48,43 +48,43 @@ const projects = [
     title: 'Subtitle Tool Extension for Adobe Premiere Pro',
     description: 'An extension designed to automate the subtitling workflow within Adobe Premiere Pro. It empowers video editors with three versatile modes: simple static subtitles, dynamic color-transitioning subtitles using MOGRTs, and dual-layer transliteration for multi-language projects. By integrating directly with the Premiere Pro timeline, this tool significantly reduces manual effort by 50% and enhances creative flexibility.',
     technologies: ['JavaScript', 'ExtendScript', 'HTML', 'CSS'],
-    repoLink: '#https://github.com/PlanetRead/subtitle-tool-for-Adobe-Premier/tree/tanishka-subtitle-tool', 
-    documentation: '#https://drive.google.com/drive/u/0/folders/1zLyE_IdBiHJirEAvhwn0mvu1AroG1b8s'
+    repoLink: 'https://github.com/PlanetRead/subtitle-tool-for-Adobe-Premier/tree/tanishka-subtitle-tool', 
+    documentation: 'https://drive.google.com/drive/u/0/folders/1zLyE_IdBiHJirEAvhwn0mvu1AroG1b8s'
   },
   {
     title: 'Smart Hybrid Delivery',
     description: 'A hybrid drone delivery path planning system that optimizes last-mile routes using EVs and drones to reduce carbon emissions and calculate efficiency in real-time.',
     technologies: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB'],
-    repoLink: '#https://github.com/harshiill/hybrid-drone-ev',
-    liveLink: '#https://hybrid-drone-ev.vercel.app/',
-    youtubeLink: '#https://www.youtube.com/watch?v=qvc7_PmT1xs' // Added youtube link
+    repoLink: 'https://github.com/harshiill/hybrid-drone-ev',
+    liveLink: 'https://hybrid-drone-ev.vercel.app/',
+    youtubeLink: 'https://www.youtube.com/watch?v=qvc7_PmT1xs' // Added youtube link
   },
   {
     title: 'Personal Portfolio Website',
     description: 'My personal portfolio to showcase my skills, experience, and projects. Built with Next.js and TypeScript, styled with Tailwind CSS, and animated with Framer Motion for a smooth, interactive user experience.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React'],
-    repoLink: '#https://github.com/tanishkaa08/Portfolio-Website',
+    repoLink: 'https://github.com/tanishkaa08/Portfolio-Website',
     liveLink: '#'
   },
   {
     title: 'Abhikalpan Techfest Website',
     description: 'Developed the official website for Abhikalpan, the annual tech fest of IIITDM Jabalpur. Built with Next.js and styled with Tailwind CSS for a responsive and modern user experience, improving user retention by 30%.',
     technologies: ['Next.js', 'Tailwind CSS', 'React', 'TypeScript'],
-    repoLink: '#https://github.com/RISHIKESHk07/Abhikalpan-website',
-    liveLink: '#https://abhikalpan-website.vercel.app/'
+    repoLink: 'https://github.com/RISHIKESHk07/Abhikalpan-website',
+    liveLink: 'https://abhikalpan-website.vercel.app/'
   },
   {
     title: 'Smart Warehouse System',
     description: 'A web-controlled ESP32 system for smart warehouses, employing a WebSocket protocol for real-time communication between the client and hardware.',
     technologies: ['Python'],
-    repoLink: '#https://github.com/tanishkaa08/Smart-Warehouse-system'
+    repoLink: 'https://github.com/tanishkaa08/Smart-Warehouse-system'
   },
  
   {
     title: 'VisionBoard',
     description: 'A vision board web application that enables users to create, edit, and manage articles to visualize and track their personal activities, supporting over 400 authenticated users.',
     technologies: ['React', 'Appwrite', 'TinyMCE', 'Tailwind CSS'],
-    repoLink: '#https://github.com/tanishkaa08/vision-board',
+    repoLink: 'https://github.com/tanishkaa08/vision-board',
     status: 'Ongoing',
   },
   {
@@ -98,7 +98,7 @@ const projects = [
     title: 'TaskManager - Chrome Extension',
     description: 'A lightweight and intuitive Google Chrome extension to help manage daily tasks and appointments efficiently. Features a daily task planner with priority levels and an appointment scheduler with reminders.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    repoLink: '#https://github.com/tanishkaa08/TaskManager',
+    repoLink: 'https://github.com/tanishkaa08/TaskManager',
     status: 'Ongoing',
   },
 ];
@@ -119,10 +119,10 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mt-20 mb-16">
-          <h2 className="text-4xl font-bold text-blue-950">Some Recent Work</h2>
+        <div className="text-center mt-10 md:mt-20 mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-950">Some Recent Work</h2>
         </div>
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-full md:max-w-3xl mx-auto">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-1 gap-20"
             variants={containerVariants}

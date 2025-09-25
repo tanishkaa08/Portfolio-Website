@@ -17,23 +17,29 @@ const navLinks = [
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   const scrambleRef = useRef<ScrambleTextHandle>(null);
 
   useEffect(() => {
+    setHasMounted(true);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
       // Find the last section that is in the viewport
       const currentSection = [...navLinks].reverse().find((link) => {
         const section = document.getElementById(link.href.substring(1));
-        return section && section.offsetTop <= window.scrollY + 150;
+        // Adjust the offset to ensure the correct section is highlighted
+        return section && section.offsetTop <= window.scrollY + window.innerHeight / 2;
       });
 
-      setActiveSection(currentSection);
+      setActiveSection(currentSection?.href || '');
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    
+    // Run on mount to set initial state
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -52,7 +58,8 @@ const Navbar = () => {
           onFocus={() => scrambleRef.current?.scramble()}
           onBlur={() => scrambleRef.current?.reset()}
         >
-          <ScrambleText ref={scrambleRef} text="Tanishka Nibariya - Junior Year" className="text-pink-800 font-light text-3xl hover:text-highlight transition-colors [font-family:'Lora']" />
+          <ScrambleText ref={scrambleRef} text="Tanishka Nibariya" className="md:hidden text-pink-800 font-light text-2xl hover:text-highlight transition-colors [font-family:'Lora']" />
+          <ScrambleText ref={scrambleRef} text="Tanishka Nibariya - Junior Year" className="hidden md:inline text-pink-800 font-light text-3xl hover:text-highlight transition-colors [font-family:'Lora']" />
         </Link>
         <div className="hidden md:flex items-center space-x-2">
           {navLinks.map((link) => (
@@ -60,11 +67,11 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ease-in-out ${
-                activeSection?.href === link.href
+                hasMounted && activeSection === link.href
                   ? 'bg-pink-800 text-white shadow-lg'
                   : 'text-gray-700 hover:bg-pink-800 hover:text-highlight'
               }`}
-              animate={{ scale: activeSection === link.href.substring(1) ? 1.1 : 1 }}
+              animate={{ scale: hasMounted && activeSection === link.href ? 1.1 : 1 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >{link.name}</motion.a>
           ))}

@@ -3,7 +3,7 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { FaBriefcase } from 'react-icons/fa';
 
-// --- UPDATED Experience Data with all 4 roles ---
+
 const experiences = [
   {
     company: 'Code for GovTech DMP',
@@ -47,7 +47,6 @@ const experiences = [
   }
 ];
 
-// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -65,7 +64,7 @@ const itemVariants = (isLeft: boolean): Variants => ({
   },
 });
 
-// --- SVG Background Component ---
+
 const CurvedBackground = () => (
   <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
     <svg 
@@ -82,7 +81,7 @@ const CurvedBackground = () => (
   </div>
 );
 
-// --- Main Experience Component ---
+
 const Experience = () => {
   return (
     <section id="experience" className="pt-40 pb-28 relative"> 
@@ -91,7 +90,7 @@ const Experience = () => {
 
       <div className="relative z-10">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-20 text-blue-950">Where I've Worked</h2>
+          <h2 className="text-4xl font-bold text-center mb-20 text-blue-950">Where I&apos;ve Worked</h2>
           
           <motion.div
             className="relative max-w-3xl mx-auto"
@@ -100,7 +99,7 @@ const Experience = () => {
             viewport={{ once: false, amount: 0.1 }} // Adjust amount to trigger animation sooner
             variants={containerVariants}
           >
-            {/* Vertical Timeline Bar */}
+        
             <div className="absolute left-1/2 top-0 h-full w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
 
             {experiences.map((exp, index) => {
@@ -121,7 +120,7 @@ const Experience = () => {
                       </ul>
                     </div>
                   </div>
-                  {/* Timeline Circle */}
+            
                   <div className="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-white border-4 border-pink-800 rounded-full flex items-center justify-center z-10">
                     <FaBriefcase className="text-pink-800" size={12} />
                   </div>

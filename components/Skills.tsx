@@ -17,6 +17,8 @@ import {
   SiGithub,
   SiAndroidstudio,
   SiAdobepremierepro,
+  SiFlutter,
+  SiExpress,
   
   SiMongodb,
   SiVite,
@@ -61,7 +63,9 @@ const skillCategories = [
     skills: [
       { name: 'React', icon: <SiReact size={40} className="text-[#61DAFB]" /> },
       { name: 'Next.js', icon: <SiNextdotjs size={40} className="text-black" /> },
+      { name: 'Flutter', icon: <SiFlutter size={40} className="text-blue-400" /> },
       { name: 'Node.js', icon: <FaNodeJs size={40} className="text-green-500" /> },
+      { name: 'Express', icon: <SiExpress size={40} className="text-gray-600" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss size={40} className="text-[#06B6D4]" /> },
       { name: 'MongoDB', icon: <SiMongodb size={40} className="text-green-600" /> },
     ],
@@ -69,7 +73,7 @@ const skillCategories = [
 ];
 
 // --- Updated, More Realistic Tape Component ---
-const Tape = ({ rotation }) => (
+const Tape = ({ rotation }: { rotation: string }) => (
     // Increased width slightly (w-28) to accommodate the torn edges
     <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-28 h-8 z-10 ${rotation}`}>
       <div
