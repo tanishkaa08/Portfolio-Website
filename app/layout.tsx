@@ -17,6 +17,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
+      style={{ colorScheme: 'light' }}
       suppressHydrationWarning
     >
       <body className="antialiased" suppressHydrationWarning>
