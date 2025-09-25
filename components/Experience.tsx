@@ -97,7 +97,7 @@ const Experience = () => {
             className="relative max-w-3xl mx-auto"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }} // Adjust amount to trigger animation sooner
+            viewport={{ once: false, amount: 0.1 }} // Adjust amount to trigger animation sooner
             variants={containerVariants}
           >
             {/* Vertical Timeline Bar */}

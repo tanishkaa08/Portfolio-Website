@@ -37,7 +37,7 @@ const Hero = () => {
             },
           }}
         >Tanishka Nibariya</motion.h2>
-        <motion.p variants={itemVariants} className="text-2xl md:text-3xl  text-pink-800">Open-Source Developer & Aspiring Software Engineer</motion.p>
+        <motion.p variants={itemVariants} className="text-2xl md:text-3xl  text-orange-800">Open-Source Developer & Aspiring Software Engineer</motion.p>
       </motion.div>
     </section>
   );
