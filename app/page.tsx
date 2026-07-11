@@ -29,10 +29,11 @@ export default function Home() {
       <Hero />
       <About />
       <Experience />
+      <Achievements />
       <Skills />
   
       <Projects />
-      <Achievements />
+     
       <Contact />
       <Footer />
     </main>

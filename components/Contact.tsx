@@ -42,8 +42,17 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-secondary/50 backdrop-blur-sm border-2 border-accent/30 p-8 rounded-2xl shadow-lg" suppressHydrationWarning>
-              {hasMounted && state.succeeded ? (
+            <div className="bg-secondary/50 backdrop-blur-sm border-2 border-accent/30 p-8 rounded-2xl shadow-lg min-h-[28rem]">
+              {!hasMounted ? (
+                <div className="space-y-6 animate-pulse" aria-hidden="true">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="h-16 rounded bg-background/60" />
+                    <div className="h-16 rounded bg-background/60" />
+                  </div>
+                  <div className="h-36 rounded bg-background/60" />
+                  <div className="h-12 w-40 mx-auto rounded bg-background/60" />
+                </div>
+              ) : state.succeeded ? (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8">
                   <FaCheckCircle className="text-green-800 mx-auto text-5xl mb-4" />
                   <p className="text-xl font-semibold">Thanks for your message!</p>
@@ -51,10 +60,9 @@ const Contact = () => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" suppressHydrationWarning>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="relative">
                       <label htmlFor="name" className="block mb-2 font-semibold">Name</label>
-                     
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
                         type="text"
@@ -67,7 +75,6 @@ const Contact = () => {
                     </div>
                     <div className="relative">
                       <label htmlFor="email" className="block mb-2 font-semibold">Email</label>
-                     
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
                         type="email"
@@ -88,7 +95,7 @@ const Contact = () => {
                       rows={5}
                       className="w-full p-3 rounded bg-background border-1 border-accent/50 focus:border-highlight focus:ring-2 focus:ring-highlight/50 focus:outline-none transition-all duration-300"
                       required
-                    ></motion.textarea>
+                    />
                     <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-sm mt-1" />
                   </div>
                   <div className="text-center">
@@ -99,7 +106,7 @@ const Contact = () => {
                       disabled={state.submitting}
                       className="bg-highlight text-pink-800 border font-bold py-3 px-8 rounded-lg shadow-lg shadow-highlight/30 hover:bg-opacity-90 transition-all duration-300 disabled:bg-gray-500 disabled:shadow-none disabled:cursor-not-allowed"
                     >
-                      {hasMounted && (state.submitting ? 'Sending...' : 'Get in Touch')}
+                      {state.submitting ? 'Sending...' : 'Get in Touch'}
                     </motion.button>
                   </div>
                 </form>

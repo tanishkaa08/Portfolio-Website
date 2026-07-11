@@ -40,7 +40,7 @@ const Hero = () => {
         >Tanishka Nibariya</motion.h2>
         <motion.p variants={itemVariants} className="text-xl sm:text-2xl md:text-3xl text-orange-800">Software Developer · Open Source · Systems</motion.p>
         <motion.p variants={itemVariants} className="mt-3 text-sm sm:text-base text-orange-800/80 max-w-xl mx-auto px-4">
-          SoB&apos;26 @CoinSwap · C4GT&apos;25 · SIH&apos;25 Grand Finalist · IIITDMJ&apos;27
+          SoB&apos;26 @CoinSwap · C4GT&apos;25 @PlanetRead · SIH&apos;25 Grand Finalist · IIITDMJ&apos;27
         </motion.p>
         <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mt-8">
           <motion.a
