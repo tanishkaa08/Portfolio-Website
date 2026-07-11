@@ -17,7 +17,6 @@ const navLinks = [
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
-  const [isScrolled, setIsScrolled] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
   const scrambleRef = useRef<ScrambleTextHandle>(null);
 
@@ -25,8 +24,6 @@ const Navbar = () => {
     setHasMounted(true);
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
       // Find the last section that is in the viewport
       const currentSection = [...navLinks].reverse().find((link) => {
         const section = document.getElementById(link.href.substring(1));
