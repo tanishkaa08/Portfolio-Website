@@ -1,45 +1,41 @@
 'use client';
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { FaHtml5, FaCss3Alt, FaNodeJs } from 'react-icons/fa';
+import { FaNodeJs } from 'react-icons/fa';
 import { VscVscode, VscJson } from 'react-icons/vsc';
 import {
   SiNextdotjs,
   SiTailwindcss,
   SiReact,
-  SiJavascript,
   SiGit,
   SiPython,
   SiCplusplus,
-
-  SiFigma,
   SiUbuntu,
   SiGithub,
   SiAndroidstudio,
   SiAdobepremierepro,
-  SiFlutter,
   SiExpress,
-  
   SiMongodb,
-  SiVite,
-  SiFirebase,
-  SiAppwrite,
   SiTypescript,
+  SiKotlin,
+  SiRust,
+  SiExpo,
+  SiSupabase,
+  SiPostgresql,
+  SiOpenjdk,
 } from 'react-icons/si';
 
-// --- Data Refactored for easier mapping ---
 const skillCategories = [
   {
     title: 'Languages',
     skills: [
-      
       { name: 'C++', icon: <SiCplusplus size={40} className="text-[#00599C]" /> },
-      { name: 'HTML5', icon: <FaHtml5 size={40} className="text-[#E34F26]" /> },
-      { name: 'CSS3', icon: <FaCss3Alt size={40} className="text-[#1572B6]" /> },
-      { name: 'JavaScript', icon: <SiJavascript size={40} className="text-[#F7DF1E] bg-black" /> },
-      { name: 'ExtendScript', icon: <VscJson size={40} className="text-[#F7DF1E]" /> },
-      { name: 'Python', icon: <SiPython size={40} className="text-[#3776AB]" /> },
+      { name: 'Java', icon: <SiOpenjdk size={40} className="text-[#ED8B00]" /> },
       { name: 'TypeScript', icon: <SiTypescript size={40} className="text-blue-700" /> },
+      { name: 'Python', icon: <SiPython size={40} className="text-[#3776AB]" /> },
+      { name: 'Kotlin', icon: <SiKotlin size={40} className="text-[#7F52FF]" /> },
+      { name: 'Rust', icon: <SiRust size={40} className="text-[#DEA584]" /> },
+      { name: 'ExtendScript', icon: <VscJson size={40} className="text-[#F7DF1E]" /> },
     ],
   },
   {
@@ -48,47 +44,39 @@ const skillCategories = [
       { name: 'VS Code', icon: <VscVscode size={40} className="text-[#007ACC]" /> },
       { name: 'Git', icon: <SiGit size={40} className="text-[#F05032]" /> },
       { name: 'GitHub', icon: <SiGithub size={40} className="text-black" /> },
-      { name: 'Vite', icon: <SiVite size={40} className="text-purple-500" /> },
-      { name: 'Figma', icon: <SiFigma size={40} className="text-[#F24E1E]" /> },
       { name: 'Ubuntu', icon: <SiUbuntu size={40} className="text-[#E95420]" /> },
       { name: 'Android Studio', icon: <SiAndroidstudio size={40} className="text-[#3DDC84]" /> },
+      { name: 'Expo', icon: <SiExpo size={40} className="text-black" /> },
       { name: 'Premiere Pro', icon: <SiAdobepremierepro size={40} className="text-[#040433]" /> },
-      { name: 'Firebase', icon: <SiFirebase size={40} className="text-yellow-400" /> },
-      { name: 'Appwrite', icon: <SiAppwrite size={40} className="text-pink-500" /> },
-      { name: 'TinyMCE', icon: <span className="text-sm font-bold bg-gray-200 py-1 px-2 rounded">TinyMCE</span> },
     ],
   },
   {
     title: 'Frameworks & Databases',
     skills: [
       { name: 'React', icon: <SiReact size={40} className="text-[#61DAFB]" /> },
+      { name: 'React Native', icon: <SiReact size={40} className="text-[#61DAFB]" /> },
       { name: 'Next.js', icon: <SiNextdotjs size={40} className="text-black" /> },
-      { name: 'Flutter', icon: <SiFlutter size={40} className="text-blue-400" /> },
       { name: 'Node.js', icon: <FaNodeJs size={40} className="text-green-500" /> },
       { name: 'Express', icon: <SiExpress size={40} className="text-gray-600" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss size={40} className="text-[#06B6D4]" /> },
       { name: 'MongoDB', icon: <SiMongodb size={40} className="text-green-600" /> },
+      { name: 'PostgreSQL', icon: <SiPostgresql size={40} className="text-blue-700" /> },
+      { name: 'Supabase', icon: <SiSupabase size={40} className="text-[#3ECF8E]" /> },
     ],
   },
 ];
 
-// --- Updated, More Realistic Tape Component ---
 const Tape = ({ rotation }: { rotation: string }) => (
-    // Increased width slightly (w-28) to accommodate the torn edges
     <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-28 h-8 z-10 ${rotation}`}>
       <div
-        // Changed color slightly to bg-stone-200/50 for a better "masking tape" look
         className="absolute inset-0 bg-stone-200/50 backdrop-blur-sm"
         style={{
-           // This clip-path creates the jagged "torn tape" effect on the left and right edges
            clipPath: 'polygon(3% 0%, 97% 0%, 100% 5%, 98% 15%, 100% 25%, 98% 35%, 100% 45%, 98% 55%, 100% 65%, 98% 75%, 100% 85%, 98% 95%, 100% 100%, 3% 100%, 0% 95%, 2% 85%, 0% 75%, 2% 65%, 0% 55%, 2% 45%, 0% 35%, 2% 25%, 0% 15%, 2% 5%)'
         }}
       >
-        {/* SVG filter for a subtle grain/noise texture */}
         <svg width="100%" height="100%" className="absolute inset-0 opacity-25">
           <defs>
             <filter id="noise">
-              {/* Increased numOctaves for a slightly richer texture */}
               <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
             </filter>
           </defs>
@@ -108,10 +96,9 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-// --- Main Skills Component ---
 const Skills = () => {
   const cardRotations = ['-rotate-2', 'rotate-1', 'rotate-3'];
-  const tapeRotations = ['rotate-3', '-rotate-6', 'rotate-1']; // Independent rotations for the tape
+  const tapeRotations = ['rotate-3', '-rotate-6', 'rotate-1'];
 
   return (
     <section id="skills" className="py-24 bg-[#FDECF0]/50">

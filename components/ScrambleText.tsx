@@ -14,7 +14,7 @@ export interface ScrambleTextHandle {
 const ScrambleText = forwardRef<ScrambleTextHandle, ScrambleTextProps>(({ text, className }, ref) => {
   const [displayText, setDisplayText] = useState(text);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const chars = '!<>-_\\/[]{}—=+*^?#_';
+  const chars = '!<>-_\\/[]{}=+*^?#_';
 
   const scramble = useCallback(() => {
     let counter = 0;

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from "@formspree/react";
-import { FaCheckCircle, FaGithub, FaLinkedin, FaDiscord } from 'react-icons/fa';
+import { FaCheckCircle, FaGithub, FaLinkedin, FaDiscord, FaEnvelope } from 'react-icons/fa';
 
 const Contact = () => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -25,13 +25,20 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left">
               <h3 className="text-3xl font-bold text-blue-950 mb-4">Get in Touch</h3>
-              <p className="text-pink-800 text-xl mb-8 leading-relaxed">
-                I&apos;m currently open to new opportunities and collaborations. Feel free to send me a message about anything you want to discuss.
+              <p className="text-pink-800 text-xl mb-6 leading-relaxed">
+                Open to software engineering roles, internships, and collaborations. Reach out about opportunities, open source, or anything you&apos;d like to discuss.
               </p>
+              <a
+                href="mailto:tanishkaa89@gmail.com"
+                className="inline-flex items-center gap-2 text-pink-800 font-semibold mb-8 hover:text-highlight transition-colors"
+              >
+                <FaEnvelope size={18} />
+                tanishkaa89@gmail.com
+              </a>
               <div className="flex justify-center md:justify-start space-x-6">
-                <a href="https://github.com/tanishkaa08" target="_blank" rel="noopener noreferrer" className="text-black hover:text-highlight transition-colors"><FaGithub size={28} /></a>
-                <a href="https://www.linkedin.com/in/tanishka-nibariya-4390a428b/" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-highlight transition-colors"><FaLinkedin size={28} /></a>
-                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-highlight transition-colors"><FaDiscord size={28} /></a>
+                <a href="https://github.com/tanishkaa08" target="_blank" rel="noopener noreferrer" className="text-black hover:text-highlight transition-colors" aria-label="GitHub"><FaGithub size={28} /></a>
+                <a href="https://www.linkedin.com/in/tanishka-nibariya-4390a428b/" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:text-highlight transition-colors" aria-label="LinkedIn"><FaLinkedin size={28} /></a>
+                <a href="https://discordapp.com/users/tanishkaa_08" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-highlight transition-colors" aria-label="Discord"><FaDiscord size={28} /></a>
               </div>
             </div>
 

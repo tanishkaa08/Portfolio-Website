@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaFileDownload } from 'react-icons/fa';
 
-const aboutText = "I am a 3rd year student at IIITDM Jabalpur, interested in developing real-world useful applications and projects. As an active open-source contributor, I enjoy optimizing performance, enhancing user experience, and solving meaningful problems through clean, efficient code.";
+const aboutText = "I'm a B.Tech student at IIITDM Jabalpur (2023-2027) building production software across mobile, open source, and distributed systems. Selected for Summer of Bitcoin 2026 (CoinSwap) and Code for GovTech 2025, with experience shipping offline-first React Native apps, Adobe Premiere automation published on Adobe Exchange, and a Smart India Hackathon 2025 Grand Finalist project (Top 5 of 1,42,000+).";
 
 const sentence = {
   hidden: { opacity: 1 },
@@ -52,7 +52,7 @@ const About = () => {
             viewport={{ once: false, amount: 0.4 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            <motion.a href="https://drive.google.com/file/d/1OS41h6TudKc5jbMvavGdm20lj-9dm7Ph/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-flex items-center bg-highlight text-pink-800 border font-bold py-3 px-6 rounded-lg shadow-lg shadow-highlight/30 hover:bg-opacity-90 transition-all duration-300">
+            <motion.a href="/Tanishka-Nibariya-Resume.pdf" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-flex items-center bg-highlight text-pink-800 border font-bold py-3 px-6 rounded-lg shadow-lg shadow-highlight/30 hover:bg-opacity-90 transition-all duration-300">
               <FaFileDownload className="mr-2" /> Resume
             </motion.a>
           </motion.div>

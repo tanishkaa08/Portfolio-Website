@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Tanishka Nibariya",
-  description: "The portfolio of Tanishka Nibariya, an Open-Source Developer & Aspiring Software Engineer.",
+  description: "Portfolio of Tanishka Nibariya, Software Developer at IIITDM Jabalpur. Summer of Bitcoin 2026, C4GT'25, SIH'25 Grand Finalist. Building systems, mobile apps, and open source.",
 };
 
 export default function RootLayout({

@@ -8,19 +8,18 @@ import {
   SiTypescript, 
   SiVite,
   SiJavascript,
-  SiPython,
-  SiFlutter,
-  SiFirebase,
   SiAppwrite,
   SiExpress,
   SiMongodb,
-  SiFastapi,
+  SiReact,
   SiPostgresql,
+  SiPython,
+  SiFramer,
 } from 'react-icons/si';
 
-// --- UPDATED Technology Icon Mapping ---
 const techIcons: { [key: string]: React.ReactNode } = {
   'React': <FaReact size={28} className="text-blue-500" />,
+  'React Native': <SiReact size={28} className="text-blue-500" />,
   'Node.js': <FaNodeJs size={28} className="text-green-500" />,
   'Tailwind CSS': <SiTailwindcss size={28} className="text-cyan-500" />,
   'Next.js': <SiNextdotjs size={28} className="text-black" />,
@@ -28,82 +27,69 @@ const techIcons: { [key: string]: React.ReactNode } = {
   'Vite': <SiVite size={28} className="text-purple-500" />,
   'Express': <SiExpress size={28} className="text-gray-600" />,
   'MongoDB': <SiMongodb size={28} className="text-green-600" />,
-  'Python': <SiPython size={28} className="text-yellow-500" />,
-  'Flutter': <SiFlutter size={28} className="text-blue-400" />,
-  'Firebase': <SiFirebase size={28} className="text-yellow-400" />,
-  'FastAPI': <SiFastapi size={28} className="text-green-500" />,
   'PostgreSQL': <SiPostgresql size={28} className="text-blue-700" />,
+  'Python': <SiPython size={28} className="text-yellow-500" />,
+  'Framer Motion': <SiFramer size={28} className="text-pink-600" />,
+  'WebSockets': <span className="text-xs font-bold bg-gray-200 p-1 rounded">WebSockets</span>,
+  'ESP32': <span className="text-xs font-bold bg-gray-200 p-1 rounded">ESP32</span>,
   'Appwrite': <SiAppwrite size={28} className="text-pink-500" />,
   'JavaScript': <SiJavascript size={28} className="text-yellow-400 bg-black" />,
   'HTML': <FaHtml5 size={28} className="text-orange-600" />,
   'CSS': <FaCss3Alt size={28} className="text-blue-600" />,
   'TinyMCE': <span className="text-xs font-bold bg-gray-200 p-1 rounded">TinyMCE</span>,
   'ExtendScript': <span className="text-xs font-bold bg-gray-200 p-1 rounded">ExtendScript</span>,
-  'Scripting': <span className="text-xs font-bold bg-gray-200 p-1 rounded">Scripting</span>,
+  'React Hook Form': <span className="text-xs font-bold bg-gray-200 p-1 rounded">RHF</span>,
 };
 
-// --- UPDATED Project Data ---
 const projects = [
   {
-    title: 'Subtitle Tool Extension for Adobe Premiere Pro',
-    description: 'An extension designed to automate the subtitling workflow within Adobe Premiere Pro. It empowers video editors with three versatile modes: simple static subtitles, dynamic color-transitioning subtitles using MOGRTs, and dual-layer transliteration for multi-language projects. By integrating directly with the Premiere Pro timeline, this tool significantly reduces manual effort by 50% and enhances creative flexibility.',
+    title: 'Smart Hybrid Delivery',
+    description: 'Real-time fleet coordination for EV and drone last-mile delivery. Built a Node.js/Express backend with MongoDB geospatial queries and WebSockets to track 50+ simulated nodes with low-latency location updates. Designed a multi-modal route assignment engine that allocates deliveries by load, range, and proximity, cutting average route time by 30% and removing manual dispatch.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'WebSockets'],
+    repoLink: 'https://github.com/harshiill/hybrid-drone-ev',
+    liveLink: 'https://hybrid-drone-ev.vercel.app/',
+    youtubeLink: 'https://www.youtube.com/watch?v=qvc7_PmT1xs'
+  },
+  {
+    title: 'VisionBoard',
+    description: 'Session-based auth on Appwrite for 400+ users, with compound database indexing that reduced query latency by 40%. Built a secure text rendering pipeline using DOM serialization and HTML sanitization so untrusted content from hundreds of users can be rendered without XSS risk.',
+    technologies: ['React', 'Appwrite', 'TinyMCE', 'React Hook Form', 'Tailwind CSS'],
+    repoLink: 'https://github.com/tanishkaa08/vision-board',
+  },
+  {
+    title: 'Mini Lead CRM',
+    description: 'REST API for sales-lead pipelines on Node.js, Express, and PostgreSQL with raw SQL (no ORM). Enforces a status state machine, bulk create/update with 207 partial success, and in-memory GET caching with write invalidation. Clear backend design recruiters can skim from the README.',
+    technologies: ['Node.js', 'Express', 'PostgreSQL', 'JavaScript'],
+    repoLink: 'https://github.com/tanishkaa08/mini-lead-CRM',
+  },
+  {
+    title: 'Subtitle Tool for Adobe Premiere Pro',
+    description: 'ExtendScript plugin published on Adobe Exchange. Parses SRT/TXT subtitle files and stamps 500+ timeline markers in under 5 seconds, injects text into MOGRTs, and supports dual-layer transliteration, reducing manual subtitle creation effort by 65% across multilingual pipelines.',
     technologies: ['JavaScript', 'ExtendScript', 'HTML', 'CSS'],
     repoLink: 'https://github.com/PlanetRead/subtitle-tool-for-Adobe-Premier/tree/tanishka-subtitle-tool', 
     documentation: 'https://drive.google.com/drive/u/0/folders/1zLyE_IdBiHJirEAvhwn0mvu1AroG1b8s'
   },
   {
-    title: 'Smart Hybrid Delivery',
-    description: 'A hybrid drone delivery path planning system that optimizes last-mile routes using EVs and drones to reduce carbon emissions and calculate efficiency in real-time.',
-    technologies: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB'],
-    repoLink: 'https://github.com/harshiill/hybrid-drone-ev',
-    liveLink: 'https://hybrid-drone-ev.vercel.app/',
-    youtubeLink: 'https://www.youtube.com/watch?v=qvc7_PmT1xs' // Added youtube link
+    title: 'Wall Calendar',
+    description: 'Wall-calendar web app with month navigation, range-based tasks (Eisenhower priorities), Indian holiday data, Open-Meteo weather for selected ranges, light/dark themes, and Framer Motion page-flip transitions. Built with React, TypeScript, Vite, and Tailwind.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+    repoLink: 'https://github.com/tanishkaa08/Wall--Calender',
   },
   {
-    title: 'Personal Portfolio Website',
-    description: 'My personal portfolio to showcase my skills, experience, and projects. Built with Next.js and TypeScript, styled with Tailwind CSS, and animated with Framer Motion for a smooth, interactive user experience.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React'],
-    repoLink: 'https://github.com/tanishkaa08/Portfolio-Website',
-    liveLink: '#'
+    title: 'Smart Warehouse System',
+    description: 'Web-controlled ESP32 warehouse automation: HTML client and embedded firmware talk through a Python WebSocket relay for real-time grid navigation, motor control, and IR sensor feedback on a 4×4 rack layout.',
+    technologies: ['Python', 'WebSockets', 'ESP32', 'HTML'],
+    repoLink: 'https://github.com/tanishkaa08/Smart-Warehouse-system',
   },
   {
     title: 'Abhikalpan Techfest Website',
-    description: 'Developed the official website for Abhikalpan, the annual tech fest of IIITDM Jabalpur. Built with Next.js and styled with Tailwind CSS for a responsive and modern user experience, improving user retention by 30%.',
+    description: 'Official website for Abhikalpan, IIITDM Jabalpur’s annual tech fest. Built with Next.js and Tailwind CSS for a responsive, performant experience across devices.',
     technologies: ['Next.js', 'Tailwind CSS', 'React', 'TypeScript'],
     repoLink: 'https://github.com/RISHIKESHk07/Abhikalpan-website',
     liveLink: 'https://abhikalpan-website.vercel.app/'
   },
-  {
-    title: 'Smart Warehouse System',
-    description: 'A web-controlled ESP32 system for smart warehouses, employing a WebSocket protocol for real-time communication between the client and hardware.',
-    technologies: ['Python'],
-    repoLink: 'https://github.com/tanishkaa08/Smart-Warehouse-system'
-  },
- 
-  {
-    title: 'VisionBoard',
-    description: 'A vision board web application that enables users to create, edit, and manage articles to visualize and track their personal activities, supporting over 400 authenticated users.',
-    technologies: ['React', 'Appwrite', 'TinyMCE', 'Tailwind CSS'],
-    repoLink: 'https://github.com/tanishkaa08/vision-board',
-    status: 'Ongoing',
-  },
-  {
-    title: 'Expense Tracker',
-    description: 'An Android app built with Flutter for seamless expense recording, featuring real-time summaries, categorization, and daily budget management.',
-    technologies: ['Flutter', 'Firebase'],
-    status: 'Ongoing',
-  },
-
-  {
-    title: 'TaskManager - Chrome Extension',
-    description: 'A lightweight and intuitive Google Chrome extension to help manage daily tasks and appointments efficiently. Features a daily task planner with priority levels and an appointment scheduler with reminders.',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-    repoLink: 'https://github.com/tanishkaa08/TaskManager',
-    status: 'Ongoing',
-  },
 ];
 
-// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -114,7 +100,6 @@ const cardVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-// --- Main Component ---
 const Projects = () => {
   return (
     <section id="projects" className="py-20">
@@ -141,11 +126,6 @@ const Projects = () => {
                   <div className="flex-grow">
                     <div className="flex items-center mb-3">
                       <h3 className="text-2xl font-bold text-gray-900">{project.title}</h3>
-                      {project.status === 'Ongoing' && (
-                        <span className="ml-3 bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
-                          Ongoing
-                        </span>
-                      )}
                     </div>
                     <p className="text-gray-600 mb-6">{project.description}</p>
                     <h4 className="font-semibold text-gray-700 mb-3">Tech Stack:</h4>

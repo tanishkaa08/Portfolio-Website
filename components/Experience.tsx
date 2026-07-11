@@ -6,45 +6,35 @@ import { FaBriefcase } from 'react-icons/fa';
 
 const experiences = [
   {
+    company: 'Summer of Bitcoin - CoinSwap',
+    role: 'Software Developer Intern',
+    date: 'May 2026 - Present · Wyoming, USA (Remote)',
+    responsibilities: [
+      'Redesigning CoinSwap’s node sync layer to replace centralized RPC with a peer-distributed Electrum protocol, improving fault tolerance across network nodes.',
+      'Building an address-pool privacy layer that mixes 3-5x decoy addresses per wallet query, reducing address-linkability during Electrum sync.',
+      'Developing a Kotlin Android interface that abstracts UTXO sets, sync status, and balance aggregation from underlying node communication.',
+    ]
+  },
+  {
+    company: 'PlanetRead',
+    role: 'Software Developer Intern',
+    date: 'October 2025 - February 2026 · Bangalore (Remote)',
+    responsibilities: [
+      'Architected an offline-first React Native (Expo) app with AsyncStorage caching to capture 50+ telemetry events per session under unstable networks.',
+      'Designed a fault-tolerant sync pipeline with Supabase PostgreSQL, batching and uploading 10,000+ cached records after reconnect while staying consistent on 2G/3G.',
+      'Implemented secure backend data flows with Row Level Security and server-side functions for reliable telemetry ingestion in low-connectivity environments.',
+    ]
+  },
+  {
     company: 'Code for GovTech DMP',
-    role: 'Open Source Developer',
-    date: 'May 2025 - Present',
+    role: 'Open Source Intern',
+    date: 'June 2025 - September 2025 · New Delhi (Remote)',
     responsibilities: [
-      'Developing a Subtitle Automation Plugin for Adobe Premiere Pro, reducing manual effort by 65%.',
-      'Implementing dynamic two-layer subtitles with smooth, mask-based color transitions.',
-      'Supporting transliteration and dual-language subtitles for Indian languages.',
+      'Built an ExtendScript Premiere Pro plugin that parses SRT/TXT files and stamps 500+ timeline markers in under 5 seconds (vs. manual frame-by-frame work).',
+      'Reverse-engineered MOGRT parameter exposure to inject subtitle text into Motion Graphics Templates, cutting manual subtitle effort by 65%.',
+      'Engineered modular runtime loading so Premiere stays stable on projects with 1,000+ markers, a known crash point for large ExtendScript workflows.',
     ]
   },
-  {
-    company: 'Abhikalpan-Techfest',
-    role: 'Frontend Developer',
-    date: 'Jan 2025 - Apr 2025',
-    responsibilities: [
-      'Developed a real-life deployable website for the tech fest using Next.js.',
-      'Implemented responsive design with Tailwind CSS, improving user retention by 30%.',
-      'Ensured a high-performance, accessible user experience across all devices.',
-    ]
-  },
-  {
-    company: 'GirlScript Summer of Code',
-    role: 'Open Source Contributor',
-    date: 'May 2024 - Aug 2024',
-    responsibilities: [
-        'Enhanced a real-world open-source project by creating and deploying three interactive games.',
-        'Identified and fixed over 10 critical issues through rigorous debugging and code reviews.',
-        'Improved overall application performance and reliability for a seamless user experience.'
-    ]
-  },
-  {
-    company: 'Bitbyte Summer of Code',
-    role: 'Open Source Contributor',
-    date: 'Jun 2024 - Aug 2024',
-    responsibilities: [
-        'Contributed to the BSOC website by implementing multiple features and bug fixes.',
-        'Developed a loading page with smooth animations and an integrated dynamic search bar.',
-        'Reduced content search time by 40%, enhancing the overall user experience.'
-    ]
-  }
 ];
 
 const containerVariants = {
@@ -96,7 +86,7 @@ const Experience = () => {
             className="relative max-w-3xl mx-auto"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.1 }} // Adjust amount to trigger animation sooner
+            viewport={{ once: false, amount: 0.1 }}
             variants={containerVariants}
           >
         

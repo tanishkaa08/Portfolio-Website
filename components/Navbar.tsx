@@ -11,6 +11,7 @@ const navLinks = [
   { name: 'Experience', href: '#experience' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Achievements', href: '#achievements' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -66,7 +67,7 @@ const Navbar = () => {
             <motion.a
               key={link.name}
               href={link.href}
-              className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ease-in-out ${
+              className={`relative rounded-full px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out ${
                 hasMounted && activeSection === link.href
                   ? 'bg-pink-800 text-white shadow-lg'
                   : 'text-gray-700 hover:bg-pink-800 hover:text-highlight'
