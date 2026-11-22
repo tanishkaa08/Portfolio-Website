@@ -15,11 +15,27 @@ import {
   SiPostgresql,
   SiPython,
   SiFramer,
+  SiKotlin,
+  SiRust,
+  SiJetpackcompose,
+  SiBitcoin,
+  SiTorbrowser,
+  SiAndroid,
+  SiExpo,
+  SiSupabase,
 } from 'react-icons/si';
 
 const techIcons: { [key: string]: React.ReactNode } = {
-  'React': <FaReact size={28} className="text-blue-500" />,
+  'Kotlin': <SiKotlin size={28} className="text-[#7F52FF]" />,
+  'Jetpack Compose': <SiJetpackcompose size={28} className="text-[#4285F4]" />,
+  'Rust': <SiRust size={28} className="text-[#DEA584]" />,
+  'Bitcoin': <SiBitcoin size={28} className="text-[#F7931A]" />,
+  'Tor': <SiTorbrowser size={28} className="text-[#7D4698]" />,
+  'Android': <SiAndroid size={28} className="text-[#3DDC84]" />,
   'React Native': <SiReact size={28} className="text-blue-500" />,
+  'Expo': <SiExpo size={28} className="text-black" />,
+  'Supabase': <SiSupabase size={28} className="text-[#3ECF8E]" />,
+  'React': <FaReact size={28} className="text-blue-500" />,
   'Node.js': <FaNodeJs size={28} className="text-green-500" />,
   'Tailwind CSS': <SiTailwindcss size={28} className="text-cyan-500" />,
   'Next.js': <SiNextdotjs size={28} className="text-black" />,
@@ -43,6 +59,18 @@ const techIcons: { [key: string]: React.ReactNode } = {
 
 const projects = [
   {
+    title: 'CoinSwap Mobile',
+    description: 'Android taker client for CoinSwap implementing trustless, multi-hop Bitcoin atomic swaps over Tor with an Electrum backend. Built with Jetpack Compose and UniFFI bindings to the Rust taker (libcoinswap_ffi.so). Features wallet state abstraction (UTXOs, balances), maker discovery via Nostr, SOCKS proxy routing, and privacy-preserving address lookup obfuscation.',
+    technologies: ['Kotlin', 'Jetpack Compose', 'Rust', 'Bitcoin', 'Tor', 'Android'],
+    repoLink: 'https://github.com/citadel-foss/coinswap-kotlin',
+  },
+  {
+    title: 'Video Watch Timer',
+    description: 'Offline-first React Native & Expo mobile application with local AsyncStorage caching to reliably capture 50+ video telemetry events per session during unstable network conditions. Engineered a fault-tolerant synchronization pipeline with Supabase PostgreSQL batching 10,000+ cached records upon reconnection, with Row Level Security and Hindi localization.',
+    technologies: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
+    repoLink: 'https://github.com/tanishkaa08/Video-Watch-Timer/tree/Hindi',
+  },
+  {
     title: 'Smart Hybrid Delivery',
     description: 'Real-time fleet coordination for EV and drone last-mile delivery. Built a Node.js/Express backend with MongoDB geospatial queries and WebSockets to track 50+ simulated nodes with low-latency location updates. Designed a multi-modal route assignment engine that allocates deliveries by load, range, and proximity, cutting average route time by 30% and removing manual dispatch.',
     technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'WebSockets'],
@@ -57,17 +85,17 @@ const projects = [
     repoLink: 'https://github.com/tanishkaa08/vision-board',
   },
   {
-    title: 'Mini Lead CRM',
-    description: 'REST API for sales-lead pipelines on Node.js, Express, and PostgreSQL with raw SQL (no ORM). Enforces a status state machine, bulk create/update with 207 partial success, and in-memory GET caching with write invalidation. Clear backend design recruiters can skim from the README.',
-    technologies: ['Node.js', 'Express', 'PostgreSQL', 'JavaScript'],
-    repoLink: 'https://github.com/tanishkaa08/mini-lead-CRM',
-  },
-  {
     title: 'Subtitle Tool for Adobe Premiere Pro',
     description: 'ExtendScript plugin published on Adobe Exchange. Parses SRT/TXT subtitle files and stamps 500+ timeline markers in under 5 seconds, injects text into MOGRTs, and supports dual-layer transliteration, reducing manual subtitle creation effort by 65% across multilingual pipelines.',
     technologies: ['JavaScript', 'ExtendScript', 'HTML', 'CSS'],
     repoLink: 'https://github.com/PlanetRead/subtitle-tool-for-Adobe-Premier/tree/tanishka-subtitle-tool', 
     documentation: 'https://drive.google.com/drive/u/0/folders/1zLyE_IdBiHJirEAvhwn0mvu1AroG1b8s'
+  },
+  {
+    title: 'Mini Lead CRM',
+    description: 'REST API for sales-lead pipelines on Node.js, Express, and PostgreSQL with raw SQL (no ORM). Enforces a status state machine, bulk create/update with 207 partial success, and in-memory GET caching with write invalidation. Clear backend design recruiters can skim from the README.',
+    technologies: ['Node.js', 'Express', 'PostgreSQL', 'JavaScript'],
+    repoLink: 'https://github.com/tanishkaa08/mini-lead-CRM',
   },
   {
     title: 'Wall Calendar',
@@ -90,13 +118,8 @@ const projects = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-};
-
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
@@ -108,18 +131,15 @@ const Projects = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-blue-950">Some Recent Work</h2>
         </div>
         <div className="max-w-full md:max-w-3xl mx-auto">
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-1 gap-20"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          <div className="grid grid-cols-1 gap-16 md:gap-20">
             {projects.map((project) => (
               <motion.div
                 key={project.title}
                 className="relative group"
                 variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.05 }}
               >
                 <div className="absolute -inset-3 bg-[#FDECF0]/50 rounded-lg z-0 transition-transform duration-500 ease-out group-hover:rotate-[-2deg] group-hover:scale-105"></div>
                 <div className="relative z-10 bg-white p-6 sm:p-8 rounded-lg h-full flex flex-col shadow-lg">
@@ -166,7 +186,7 @@ const Projects = () => {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -3,16 +3,16 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { FaBriefcase } from 'react-icons/fa';
 
-
 const experiences = [
   {
     company: 'Summer of Bitcoin - CoinSwap',
     role: 'Software Developer Intern',
     date: 'May 2026 - Present · Wyoming, USA (Remote)',
     responsibilities: [
-      'Redesigning CoinSwap’s node sync layer to replace centralized RPC with a peer-distributed Electrum protocol, improving fault tolerance across network nodes.',
-      'Building an address-pool privacy layer that mixes 3-5x decoy addresses per wallet query, reducing address-linkability during Electrum sync.',
-      'Developing a Kotlin Android interface that abstracts UTXO sets, sync status, and balance aggregation from underlying node communication.',
+      'Engineered the Android taker app using Kotlin and Jetpack Compose (MVVM) with UniFFI native bindings to the Rust taker core (libcoinswap_ffi.so).',
+      'Built reactive mobile UI flows for wallet management, passcode authentication, Nostr maker discovery, and multi-hop Bitcoin swap lifecycle monitoring.',
+      'Abstracted distributed wallet state (UTXO sets, sync status, balance aggregation) into an Electrum-backed presentation layer routing traffic through Tor SOCKS proxy.',
+      'Constructed a mobile privacy layer to obfuscate address lookups by mixing real wallet UTXOs with 3–5× decoy addresses per query.',
     ]
   },
   {
@@ -20,9 +20,9 @@ const experiences = [
     role: 'Software Developer Intern',
     date: 'October 2025 - February 2026 · Bangalore (Remote)',
     responsibilities: [
-      'Architected an offline-first React Native (Expo) app with AsyncStorage caching to capture 50+ telemetry events per session under unstable networks.',
-      'Designed a fault-tolerant sync pipeline with Supabase PostgreSQL, batching and uploading 10,000+ cached records after reconnect while staying consistent on 2G/3G.',
-      'Implemented secure backend data flows with Row Level Security and server-side functions for reliable telemetry ingestion in low-connectivity environments.',
+      'Developed the cross-platform "Bird" mobile app using React Native (Expo Router) and NativeWind (Tailwind CSS) with custom video playback (expo-video) and Hindi localization.',
+      'Architected an offline-first mobile caching layer with AsyncStorage and SQLite to reliably capture 50+ video playback telemetry events per session under spotty 2G/3G connectivity.',
+      'Designed a fault-tolerant background sync pipeline with Supabase PostgreSQL, batching and uploading 10,000+ cached records after reconnection with Row Level Security (RLS).',
     ]
   },
   {
@@ -54,7 +54,6 @@ const itemVariants = (isLeft: boolean): Variants => ({
   },
 });
 
-
 const CurvedBackground = () => (
   <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
     <svg 
@@ -62,20 +61,17 @@ const CurvedBackground = () => (
       preserveAspectRatio="none" 
       className="absolute w-full h-full"
     >
-    
-    <path 
-  d="M 0,50 C 360,25 1080,25 1440,50 L 1440,400 L 0,400 Z" 
-  fill="#FDECF080" 
-/>
+      <path 
+        d="M 0,50 C 360,25 1080,25 1440,50 L 1440,400 L 0,400 Z" 
+        fill="#FDECF080" 
+      />
     </svg>
   </div>
 );
 
-
 const Experience = () => {
   return (
     <section id="experience" className="pt-40 pb-28 relative"> 
-      
       <CurvedBackground />
 
       <div className="relative z-10">
@@ -89,7 +85,6 @@ const Experience = () => {
             viewport={{ once: false, amount: 0.1 }}
             variants={containerVariants}
           >
-        
             <div className="absolute left-1/2 top-0 h-full w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
 
             {experiences.map((exp, index) => {

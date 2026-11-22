@@ -13,6 +13,11 @@ const achievements: {
 }[] = [
   {
     icon: <FaTrophy className="text-pink-800" size={22} />,
+    title: 'Flipkart GRiD 8.0 Semifinalist',
+    detail: 'National Semifinalist in the Flipkart GRiD 8.0 engineering hackathon',
+  },
+  {
+    icon: <FaTrophy className="text-pink-800" size={22} />,
     title: 'Smart India Hackathon 2025 Grand Finalist',
     detail: 'Top 5 out of 1,42,000+ submissions',
     links: [
